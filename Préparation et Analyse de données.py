@@ -56,7 +56,7 @@ categories = list(data["Source_Vente"].unique())
 map_dict = {'CASE':0,'Chat':1,'Customer Visit':2,'EPROCM':3,'Email':4,'Fax':5,'INTERCO':6,'Other':7,'PORTAL':8,'Phone':9,'Post':10,'Webshop':11,'e-Procurement':12}
 print(categories)
 F = data.Source_Vente.map(map_dict)
-data = pd.concat([data.drop("Source_Vente",axis=1),D],axis='columns')
+data = pd.concat([data.drop("Source_Vente",axis=1),F],axis='columns')
 # visualisation des données après l'encodage 
 data
  # analyse des différents colonnes en moyenne en les regroupant  par Jours Ouvrables
@@ -80,7 +80,7 @@ y
 from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test= train_test_split(X,y,test_size=0.2,random_state=0)
 # regroupement des données sans la Date pour faire de la standarisation 
- data.loc[:,["Nombre_de_commandes","CA","Jours_Ouvrables","Nombre_customers_KA","Nombre_customers_BA","PIB","Taux_de_Chomage","Source_Vente"]]
+X1=data.loc[:,["Nombre_de_commandes","CA","Jours_Ouvrables","Nombre_customers_KA","Nombre_customers_BA","PIB","Taux_de_Chomage","Source_Vente"]]
 # standardisation des données 
 sc_X1= StandardScaler()
 X1_train = sc_X.fit_transform(X1_train)
