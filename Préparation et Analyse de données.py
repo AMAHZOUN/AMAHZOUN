@@ -83,8 +83,8 @@ X_train,X_test,y_train,y_test= train_test_split(X,y,test_size=0.2,random_state=0
 X1=data.loc[:,["Nombre_de_commandes","CA","Jours_Ouvrables","Nombre_customers_KA","Nombre_customers_BA","PIB","Taux_de_Chomage","Source_Vente"]]
 # standardisation des données 
 sc_X1= StandardScaler()
-X1_train = sc_X.fit_transform(X1_train)
-X1_test = sc_X.transform(X1_test)
+X1_train = sc_X1.fit_transform(X1_train)
+X1_test = sc_X1.transform(X1_test)
 # indexing with Date column
 data.set_index("DATE",inplace=True)
 # Visualisation du PIB en fonction de la DATE
